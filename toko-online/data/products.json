@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "name": "Laptop Gaming",
+        "price": 15000000,
+        "description": "Laptop performa tinggi untuk gaming dan editing."
+    },
+    {
+        "id": 2,
+        "name": "Smartphone Flagship",
+        "price": 12500000,
+        "description": "Ponsel cerdas dengan kamera pro dan performa terbaik."
+    },
+    {
+        "id": 3,
+        "name": "Smart TV 55 Inch 4K",
+        "price": 8500000,
+        "description": "Televisi pintar dengan resolusi 4K untuk pengalaman menonton yang imersif."
+    },
+    {
+        "id": 4,
+        "name": "Wireless Earbuds",
+        "price": 950000,
+        "description": "Earbuds nirkabel dengan kualitas suara jernih dan noise cancellation."
+    },
+    {
+        "id": 5,
+        "name": "Monitor Gaming 27 Inch",
+        "price": 3200000,
+        "description": "Monitor dengan refresh rate tinggi untuk gaming yang responsif."
+    },
+    {
+        "id": 6,
+        "name": "Keyboard Mekanikal RGB",
+        "price": 750000,
+        "description": "Keyboard gaming dengan switch mekanikal dan lampu RGB yang bisa dikustomisasi."
+    },
+    {
+        "id": 7,
+        "name": "Drone Kamera",
+        "price": 5500000,
+        "description": "Drone lipat dengan kamera 4K, cocok untuk hobi fotografi udara."
+    },
+    {
+        "id": 8,
+        "name": "Speaker Bluetooth Portabel",
+        "price": 1200000,
+        "description": "Speaker anti air dengan suara bass kuat, ideal untuk pesta outdoor."
+    },
+    {
+        "id": 9,
+        "name": "Smartwatch",
+        "price": 2800000,
+        "description": "Jam tangan pintar untuk memonitor kesehatan dan notifikasi."
+    },
+    {
+        "id": 10,
+        "name": "Konsol Game Terbaru",
+        "price": 7000000,
+        "description": "Konsol game dengan grafis canggih dan koleksi game eksklusif."
+    }
+]
