@@ -1,6 +1,10 @@
 var express = require('express');
 var router = express.Router();
-var products = require("../../data/products.json");
+var productsController = require("../controllers/product");
+
+router.get("/apill",productsController.apiall);
+router.get("/all",productsController.index);
+router.get("/all",productsController.detail);
 
 router.get('/:productId/review/:reviewId', function(req, res, next) {
     const productId = req.params.productId;
@@ -28,4 +32,5 @@ router.get("/:id",function(req,res,next){
         }
     );
 });
+
 module.exports = router;
