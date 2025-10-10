@@ -1,27 +1,26 @@
 const mongoose = require("mongoose");
-
-//buat skema produk
+//buat skema Produk
 const ProductSchema = new mongoose.Schema({
-    //tidak perlu membuat properti id karena akan dibuat otomatis
-    //dengan nama_id
+    //tidak perlu mebuat properti id karena akan dibuat otomatis
+    //dengan nama _id
     name: {
         type : String,
-        require:[true,"Nama produk harus diisi"],
-        trim:true,//menghilangkan spasi di awal dan akhir
+        required: [true, "Nama produk harus diisi"],
+        trim: true, //menghilangkan spasi di awal dan akhir
     },
-    price:{
+    price: {
         type : Number,
-        require : [true,"Harga produk harus diisi"],
-        min: [1000,"Harga produk minimal 1000"],//nilai minimum
-        //max: [1000,"Harga produk minimal 1000"]
+        required : [true, "Harga produk harus diisi"],
+        min: [1000, "Harga produk minimal 1000"], //nilai minimum
+        //max: [1000, "Harga produk minimal 1000"]
     },
-    description:{
-        type: String,
-        required:false,//menandakan kolom wajib diisi atau tidak
+    description: {
+        type : String,
+        required: false, //menandakan kolom wajib diisi atau tidak
     },
     stock: {
         type: Number,
-        default: 0, //memberikan nilai bawaan/defauld
+        default: 0, //memberikan nilai bawaan/default
     },
     createAt: {
         type: Date,
@@ -29,7 +28,7 @@ const ProductSchema = new mongoose.Schema({
     }
 });
 
-//buat model dari schema
-const Product = mongoose.model('Product',ProductSchema);
+//Buat model dari Schema
+const Product = mongoose.model('Product', ProductSchema);
 
 module.exports = Product;
