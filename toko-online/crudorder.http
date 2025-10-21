@@ -1,15 +1,17 @@
-### POST Membuat Pesanan Baru
-# Ganti user ID dengan ID user yang sudah ada di MongoDB
-# Ganti product ID dengan _id produk yang sudah ada di MongoDB (lihat collection products)
+### GET All Orders (Admin Only)
+GET http://localhost:3000/api/orders
+
+### Create New Order
 POST http://localhost:3000/api/orders
-Content-Type: application/json
+content-type: application/json
 
 {
-    "user": "68f2376c11296c1c84db3393", 
+    "isAdmin": true,
+    "user": "68f729565c29075ddc40799a",
     "orderItems": [
         {
-            "product": "68e91192d8db4e71077b35ce", 
-            "quantity": 2
+            "product": "68e91192d8db4e71077b35ce",
+            "quantity": 1
         },
         {
             "product": "68f2480946bc7930dfbdd4c9",
@@ -18,16 +20,79 @@ Content-Type: application/json
     ]
 }
 
-### GET Semua Pesanan
-GET http://localhost:3000/api/orders
+### Create Order with Single Item
+POST http://localhost:3000/api/orders
+content-type: application/json
 
-### GET Detail Pesanan (Ganti ID)
-GET http://localhost:3000/api/orders/68f2483781f31b290702dad5
+{
+    "user": "68f5f80500964c6ea40e6012",
+    "orderItems": [
+        {
+            "product": "68ecc2b44d49272f5636f322",
+            "quantity": 1
+        }
+    ]
+}
 
-### PUT Update Status Pesanan (Ganti ID)
-PUT http://localhost:3000/api/orders/68f2483781f31b290702dad5
-Content-Type: application/json
+### Get Order Detail (Replace with actual order ID)
+GET http://localhost:3000/api/orders/68f7297d5c29075ddc40799e
+
+### Update Order Status to Processing (Admin Only - Replace with actual order ID)
+PUT http://localhost:3000/api/orders/68f729565c29075ddc40799a
+content-type: application/json
+
+{
+    "status": "Processing"
+}
+
+### Update Order Status to Shipped (Admin Only - Replace with actual order ID)
+PUT http://localhost:3000/api/orders/68f2377b11296c1c84db3395
+content-type: application/json
 
 {
     "status": "Shipped"
+}
+
+### Update Order Status to Delivered (Admin Only - Replace with actual order ID)
+PUT http://localhost:3000/api/orders/68f5f80500964c6ea40e6012
+content-type: application/json
+
+{
+    "status": "delivered"
+}
+
+### Update Order Status to Cancelled (Admin Only - Replace with actual order ID)
+PUT http://localhost:3000/api/orders/68f5f80500964c6ea40e6012
+content-type: application/json
+
+{
+    "status": "cancelled"
+}
+
+### Test Order with Invalid Product ID (Should return 404)
+POST http://localhost:3000/api/orders
+content-type: application/json
+
+{
+    "user": "68f5f80500964c6ea40e6012",
+    "orderItems": [
+        {
+            "product": "000000000000000000000000",
+            "quantity": 1
+        }
+    ]
+}
+
+### Test Order with Invalid User ID (Should return validation error)
+POST http://localhost:3000/api/orders
+content-type: application/json
+
+{
+    "user": "000000000000000000000000",
+    "orderItems": [
+        {
+            "product": "68ecc2b44d49272f5636f322",
+            "quantity": 1
+        }
+    ]
 }

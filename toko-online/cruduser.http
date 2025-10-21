@@ -38,4 +38,4 @@ content-type: application/json
 }
 
 ### Delete User (Replace with actual user ID)
-DELETE http://localhost:3000/api/user/67113abc123def456789abcd
+DELETE http://localhost:3000/api/user/68f2377b11296c1c84db3395

@@ -7,17 +7,17 @@ POST http://localhost:3000/api/produk
 content-type: application/json
 
 {
-    "name": "Keyboard",
-    "price": "1",
-    "description" : "Hyper sensitive keyboard",
-    "stock" : 1
+    "name": "Keyboard Gaming",
+    "price": "150000",
+    "description" : "keyboard gaming murah meriah",
+    "stock" : 2
 }
 
 ### Detail Product
-GET http://localhost:3000/api/produk/68ecc2774d49272f5636f31f
+GET http://localhost:3000/api/produk/68f725f35c29075ddc40795d
 
 ### Update Product
-PUT http://localhost:3000/api/produk/68ecc2774d49272f5636f31f
+PUT http://localhost:3000/api/produk/68f725f35c29075ddc40795d
 content-type: application/json
 
 {
@@ -26,4 +26,4 @@ content-type: application/json
 }
 
 ### Delete Product
-DELETE http://localhost:3000/api/produk/68ecc2774d49272f5636f31f
+DELETE http://localhost:3000/api/produk/68f725f35c29075ddc40795d

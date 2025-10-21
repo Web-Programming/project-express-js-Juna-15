@@ -1,32 +1,22 @@
-// app_toko_online/routes/api/order.js
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const orderController = require("../../controllers/order");
+const orderController = require('../../controllers/order');
+const auth = require('../middleware/authMiddleware');
 
-function requireJson(req, res, next) {
-    // Periksa apakah Content-Type adalah application/json
-    if (req.headers['content-type'] !== 'application/json') {
-        return res.status(406).json({
-            success: false,
-            message: 'Header "Content-Type" harus "application/json".'
-        });
-    }
-    next(); // Lanjutkan ke route handler
-}
+// @route   POST /api/orders
+// @desc    Membuat Pesanan Baru
+router.post('/', auth.adminOnly, orderController.create);
 
-// POST /api/orders : Membuat Pesanan Baru
-router.post("/", requireJson, orderController.create);
+// @route   GET /api/orders
+// @desc    Mengambil Semua Pesanan (Dibatasi Admin)
+router.get('/', orderController.all);
 
-// GET /api/orders : Mengambil semua Pesanan
-router.get("/", orderController.all);
+// @route   GET /api/orders/:id
+// @desc    Mengambil Detail Pesanan
+router.get('/:id', orderController.detail);
 
-// GET /api/orders/:id : Mengambil detail satu Pesanan
-router.get("/:id", orderController.detail);
-
-// PUT /api/orders/:id : Memperbarui Status Pesanan
-// Catatan: Gunakan PUT untuk update status, hanya butuh body: { "status": "Shipped" }
-router.put("/:id", requireJson, orderController.updateStatus);
-
-// Catatan: DELETE untuk order jarang dilakukan, tapi jika perlu bisa ditambahkan.
+// @route   PUT /api/orders/:id
+// @desc    Memperbarui Status Pesanan
+router.put('/:id', auth.adminOnly, orderController.update);
 
 module.exports = router;
